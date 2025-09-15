@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import Students from './components/students';
+import StudentUpload from './components/StudentUpload';
+
 import './App.css'
 
 function App() {
 
   const [message, setMessage] = useState("");
-  const fetchMessage = async () =>{
+  const fetchMessage = async () => {
     const apiURL = import.meta.env.VITE_API_URL
     console.log("API URL:", apiURL);
     const response = await axios.get(`${apiURL}/hello/`)
@@ -14,14 +15,14 @@ function App() {
   }
   return (
     <>
-    <div>
-      <button onClick={fetchMessage}>Fetch Message</button>
-    </div>
-    <h2>{message}</h2>
+      <div>
+        <button onClick={fetchMessage}>Fetch Message</button>
+      </div>
+      <h2>{message}</h2>
 
-    <div>
-      <Students />
-    </div>
+      <div>
+        <StudentUpload/>
+      </div>
     </>
   )
 }

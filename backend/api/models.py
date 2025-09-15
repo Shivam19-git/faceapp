@@ -1,9 +1,9 @@
 from django.db import models
 
 class Student(models.Model):
-   int_field = models.IntegerField(db_column='int', primary_key=True)
+   #ID created as primary key by default in DB
    name = models.CharField(max_length=100)
-   age = models.IntegerField()
+   face_image = models.ImageField(upload_to='face_previews/')
 
    class Meta:
         db_table = 'student'
@@ -11,5 +11,5 @@ class Student(models.Model):
         
    def __str__(self):
        return self.name
-   
-   
+
+    
